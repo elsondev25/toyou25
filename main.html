@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Link Somebody Clicked On</title>
+    <link rel="icon" type="image/jpeg" href="assests/mainlogo.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #ff69b4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('main.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .container {
+            background: rgba(26, 26, 26, 0.85);
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            width: 90%;
+            max-width: 550px;
+            text-align: center;
+            border: 1px solid #2d2d2d;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #ffffff;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .message {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 24px;
+            color: #a9a9a9;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .icon {
+            font-size: 3rem;
+            margin: 24px 0;
+            color: #ff69b4;
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+        }
+
+        .footer {
+            margin-top: 32px;
+            font-size: 0.9rem;
+            color: #696969;
+            animation: fadeInUp 0.8s ease-out 1s both;
+        }
+
+        .button {
+            background-color: #ff69b4;
+            color: #1a1a1a;
+            border: none;
+            padding: 16px 32px;
+            border-radius: 9999px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 24px;
+            box-shadow: 0 4px 12px rgba(255, 105, 180, 0.2);
+            text-decoration: none;
+            display: inline-block;
+            animation: fadeInUp 0.8s ease-out 0.8s both;
+        }
+
+        .button:hover {
+            background-color: #ff1493;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(255, 105, 180, 0.3);
+        }
+
+        .button:active {
+            background-color: #c71585;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hey There!</h1>
+        <div class="message">
+            You're here because you clicked a link, right?<br>
+            Coz you have to click the button to continue.
+        </div>
+        <div class="icon">🚀</div>
+        <a href="continous.html" target="_blank" class="button">
+            Hey Down Here..!
+        </a>
+        <div class="footer">
+            Made with Care by Just Elson.labs
+        </div>
+    </div>
+</body>
+</html>

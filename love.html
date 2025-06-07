@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>A Special Message</title>
+    <link rel="icon" type="image/jpeg" href="assests/love.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Background colors */
+            --bg-color: #121212;
+            --container-bg: rgba(26, 26, 26, 0.85);
+            --container-border: #2d2d2d;
+            --container-shadow: rgba(0, 0, 0, 0.4);
+
+            /* Text colors */
+            --text-primary: #ffffff;
+            --text-secondary: #a9a9a9;
+            --text-footer: #696969;
+
+            /* Button colors */
+            --button-bg: #ff1493;
+            --button-hover: #ff69b4;
+            --button-active: #c71585;
+            --button-shadow: rgba(255, 20, 147, 0.2);
+            --button-hover-shadow: rgba(255, 20, 147, 0.3);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('love.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        @keyframes fadeInUp {
+            0% { 
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .container {
+            background: var(--container-bg);
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 8px 32px var(--container-shadow);
+            width: 90%;
+            max-width: 550px;
+            text-align: center;
+            border: 1px solid var(--container-border);
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .message {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin: 24px 0;
+            color: var(--text-primary);
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .heart {
+            font-size: 4rem;
+            margin: 32px 0;
+            color: var(--button-bg);
+            animation: fadeInUp 0.8s ease-out 0.4s both, pulse 2s infinite 0.8s;
+        }
+
+        .footer {
+            margin-top: 32px;
+            font-size: 0.9rem;
+            color: var(--text-footer);
+            animation: fadeInUp 0.8s ease-out 0.8s both;
+        }
+
+        .button {
+            background-color: var(--button-bg);
+            color: #1a1a1a;
+            border: none;
+            padding: 16px 32px;
+            border-radius: 9999px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 24px;
+            box-shadow: 0 4px 12px var(--button-shadow);
+            text-decoration: none;
+            display: inline-block;
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+        }
+
+        .button:hover {
+            background-color: var(--button-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px var(--button-hover-shadow);
+        }
+
+        .button:active {
+            background-color: var(--button-active);
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        /* ─── BACK BUTTON ───────────────────────────────────────────────────── */
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(26, 26, 26, 0.85);
+            border: 1px solid var(--container-border);
+            color: var(--text-primary);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px var(--container-shadow);
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .back-button:hover {
+            transform: translateX(-3px);
+            background: var(--button-bg);
+        }
+    </style>
+</head>
+<body>
+    <!-- ─── BACK BUTTON ───────────────────────────────────────────────────── -->
+    <a href="continous.html" class="back-button">←</a>
+
+    <div class="container">
+        <div class="message">
+            I still have a crush on you.<br>
+            or lets just say I 10v3 y0**.<br>
+            yeah thats all....
+        </div>
+        <div class="heart">✌️</div>
+        <a href="https://mail.google.com/chat/u/0/#chat/home" target="_blank" class="button">
+            HAVE A NICE DAY
+        </a>
+        <div class="footer">
+            Made with Care by Just Elson.labs
+        </div>
+    </div>
+</body>
+</html>

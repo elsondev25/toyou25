@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The "Somebody" Is Still Looking For You</title>
+  <link rel="icon" type="image/jpeg" href="assests/continouslogo.jpg">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"> 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Animate.css for simple fade-in -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+
+  <!-- Lottie player -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"></script>
+
+  <style>
+    :root {
+      /* Background colors */
+      --bg-color: #121212;
+      --container-bg: rgba(26, 26, 26, 0.75);
+      --container-border: #2d2d2d;
+      --container-shadow: rgba(0, 0, 0, 0.4);
+
+      /* Text colors */
+      --text-primary: #ffffff;
+      --text-secondary: #a9a9a9;
+      --text-footer: #696969;
+
+      /* Button colors */
+      --button-bg: #4169e1;
+      --button-hover: #1e90ff;
+      --button-active: #0000cd;
+      --button-shadow: rgba(65, 105, 225, 0.2);
+      --button-hover-shadow: rgba(65, 105, 225, 0.3);
+    }
+
+    /* ─── GLOBAL RESET & BASE ─────────────────────────────────────────────── */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text-primary);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: linear-gradient(rgba(0, 0, 0, 0.722), rgba(0, 0, 0, 0.645)), url('continous.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    /* ─── ANIMATIONS ───────────────────────────────────────────────────── */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ─── THE CARD ───────────────────────────────────────────────────────── */
+    .card {
+      background: var(--container-bg);
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: 0 8px 32px var(--container-shadow);
+      width: 90%;
+      max-width: 550px;
+      text-align: center;
+      border: 1px solid var(--container-border);
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    .card h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: var(--text-primary);
+      animation: fadeInUp 0.8s ease-out 0.2s both;
+    }
+
+    .message {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 24px;
+      color: var(--text-secondary);
+      animation: fadeInUp 0.8s ease-out 0.4s both;
+    }
+
+    .icon {
+      font-size: 3rem;
+      margin: 24px 0;
+      color: var(--button-bg);
+    }
+
+    .footer {
+      margin-top: 32px;
+      font-size: 0.9rem;
+      color: var(--text-footer);
+      animation: fadeInUp 0.8s ease-out 1s both;
+    }
+
+    .lottie-container {
+      width: 200px;
+      height: 200px;
+      margin: 0 auto 20px auto;
+      animation: fadeInUp 0.8s ease-out 0.6s both;
+    }
+
+    .card p {
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+      font-size: 1.05rem;
+      line-height: 1.4;
+    }
+
+    .button {
+      background-color: var(--button-bg);
+      color: #1a1a1a;
+      border: none;
+      padding: 16px 32px;
+      border-radius: 9999px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 24px;
+      box-shadow: 0 4px 12px var(--button-shadow);
+      text-decoration: none;
+      display: inline-block;
+      animation: fadeInUp 0.8s ease-out 0.8s both;
+    }
+
+    .button:hover {
+      background-color: var(--button-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px var(--button-hover-shadow);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .cta-button:active {
+      transform: translateY(0);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    /* ─── THE TOGGLE SWITCH ──────────────────────────────────────────────── */
+    .theme-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .theme-toggle input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: relative;
+      width: 50px;
+      height: 26px;
+      background-color: #ccc;
+      border-radius: 50px;
+      transition: background-color 0.3s ease;
+    }
+
+    .slider::before {
+      content: "";
+      position: absolute;
+      width: 22px;
+      height: 22px;
+      left: 2px;
+      top: 2px;
+      background-color: white;
+      border-radius: 50%;
+      transition: transform 0.3s ease;
+    }
+
+    input:checked + .slider {
+      background-color: #4d4d4d;
+    }
+
+    input:checked + .slider::before {
+      transform: translateX(24px);
+    }
+
+    .toggle-label {
+      margin-left: 8px;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      transition: color 0.3s ease;
+    }
+
+    /* ─── RESPONSIVE ADJUSTMENTS ─────────────────────────────────────────── */
+    @media (max-width: 480px) {
+      .card {
+        padding: 30px 20px;
+      }
+
+      .lottie-container {
+        width: 150px;
+        height: 150px;
+        margin-bottom: 15px;
+      }
+
+      .card h1 {
+        font-size: 1.75rem;
+      }
+
+      .card p {
+        font-size: 1rem;
+      }
+
+      .cta-button {
+        padding: 10px 20px;
+      }
+    }
+
+    /* ─── BACK BUTTON ───────────────────────────────────────────────────── */
+    .back-button {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: rgba(26, 26, 26, 0.85);
+      border: 1px solid var(--container-border);
+      color: var(--text-primary);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 8px var(--container-shadow);
+      animation: fadeInUp 0.8s ease-out 0.2s both;
+    }
+
+    .back-button:hover {
+      transform: translateX(-3px);
+      background: var(--button-bg);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ─── BACK BUTTON ───────────────────────────────────────────────────── -->
+  <a href="main.html" class="back-button">←</a>
+
+
+  <!-- ─── MAIN CARD ─────────────────────────────────────────────────────── -->
+  <div class="card animate__animated animate__fadeInUp">
+    <div class="lottie-container" id="lottie"></div>
+    <h1>LISTEN UP;</h1>
+    <p>What I'm about to tell you is so obvious, yet it might shock you. But don't worry, it's all good. Just keep reading... 😅</p>
+    <a href="love.html" target="_blank" class="button">
+        Last Button I promise...
+    </a>
+    <div class="footer">Made with Care by Just Elson.labs</div>
+  </div>
+
+  <!-- ─── LOTTIE SCRIPT ─────────────────────────────────────────────────── -->
+  <script>
+    // Initialize Lottie animation (same JSON for both themes)
+    var animation = bodymovin.loadAnimation({
+      container: document.getElementById("lottie"),
+      renderer: "svg",
+      loop: true,
+      autoplay: true,
+      path: "https://assets9.lottiefiles.com/packages/lf20_tfb3estd.json"
+    });
+
+    // ─── THEME TOGGLE LOGIC ───────────────────────────────────────────────
+    const toggleCheckbox = document.getElementById("theme-toggle-checkbox");
+    const toggleLabel = document.getElementById("toggle-label");
+    const userPref = localStorage.getItem("theme");
+
+    function applyTheme(isDark) {
+      if (isDark) {
+        document.body.classList.add("dark");
+        toggleCheckbox.checked = true;
+        toggleLabel.textContent = "Light";
+      } else {
+        document.body.classList.remove("dark");
+        toggleCheckbox.checked = false;
+        toggleLabel.textContent = "Dark";
+      }
+    }
+
+    // On page load, check localStorage or OS preference
+    if (userPref === "dark") {
+      applyTheme(true);
+    } else if (userPref === "light") {
+      applyTheme(false);
+    } else {
+      // If no explicit preference, detect OS preference
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      applyTheme(prefersDark);
+    }
+
+    // Listen for toggle switch changes
+    toggleCheckbox.addEventListener("change", () => {
+      if (toggleCheckbox.checked) {
+        applyTheme(true);
+        localStorage.setItem("theme", "dark");
+      } else {
+        applyTheme(false);
+        localStorage.setItem("theme", "light");
+      }
+    });
+  </script>
+</body>
+</html>
